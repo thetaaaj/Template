@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Template';
+
+@ViewChild('f') signUpForm!: FormGroup;
+
+  suggestUserName() {
+    const suggestedName = 'Superuser';
+  }
+
+  onSubmit(){
+    console.log(this.signUpForm.value);
+  }
 }
