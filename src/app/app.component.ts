@@ -8,13 +8,24 @@ import { FormGroup } from '@angular/forms';
 })
 export class AppComponent {
 
-@ViewChild('f') signUpForm!: FormGroup;
+  user = {
+    name: '',
+    email: '',
+    secret: ''
+  }
+  submitted: boolean = false;
+  @ViewChild('f') signUpForm!: FormGroup;
 
   suggestUserName() {
     const suggestedName = 'Superuser';
   }
 
-  onSubmit(){
+  onSubmit() {
     console.log(this.signUpForm.value);
+    this.submitted = true;
+    this.user.name = this.signUpForm.value.username;
+    this.user.email = this.signUpForm.value.email;
+    this.user.secret = this.signUpForm.value.secret;
+    console.log(this.user);
   }
 }
