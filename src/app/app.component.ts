@@ -27,5 +27,6 @@ export class AppComponent {
     this.user.email = this.signUpForm.value.email;
     this.user.secret = this.signUpForm.value.secret;
     console.log(this.user);
+    this.signUpForm.reset();
   }
 }
